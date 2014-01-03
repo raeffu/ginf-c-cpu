@@ -1,0 +1,6 @@
+#gnuplt file
+set table; 
+set output "sin.table"; 
+set format "%.5f"
+set samples 25; 
+plot [0:1] sin(x)

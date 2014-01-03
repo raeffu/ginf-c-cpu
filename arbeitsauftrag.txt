@@ -1,0 +1,2 @@
+1. Gruppenarbeit. Im mu-code eine mu-fct pro Gruppe bestimmen.
+Erkläre/Zeichne/Flemo die Funktion

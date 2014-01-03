@@ -1,0 +1,8 @@
+# gnuplot file
+# $ gnuplot <this file> will 
+# generate sin.table file with sin tabel data
+set table; 
+set output "sin.table"; 
+set format "%.3f"
+set samples 512; 
+plot [0:2*pi] (1+sin(2*pi*x/512))*127

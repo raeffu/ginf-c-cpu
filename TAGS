@@ -1,0 +1,1293 @@
+
+tests/test-main.c,79
+void print_test_registers(31,441
+void print_tester(57,1171
+int main(66,1310
+
+src/util/register.c,111
+void ldhex2regnibble(14,129
+void ldhex2register(116,2040
+void print_reg(131,2389
+void cp_register(137,2457
+
+src/util/printers.c,415
+void print1(15,235
+void printflags(18,306
+void print_stack(28,573
+void print_registers_orig(37,768
+void print_registers(68,1491
+ void printm(107,2533
+void print_register_fetch1(119,2966
+void print_register_exec(141,4001
+void print_state_array_short(163,5039
+void print_state_history_short(191,6130
+void print_state_history(209,6831
+void print_register_short(225,7383
+void print_register_exec1(243,8401
+
+src/graphic/vc.c,516
+SDL_Surface *le_screen;le_screen40,495
+ unsigned int virtual_x_resolution 42,520
+ unsigned int virtual_y_resolution 43,562
+ unsigned int x_stretch 45,605
+ unsigned int y_stretch 46,634
+char *vidchar[vidchar49,665
+char vcs[vcs95,1050
+void DrawPixel(131,1582
+void init_display(191,3042
+void exit_display(209,3517
+void dot(214,3556
+void draw_char0(256,4112
+unsigned int lookup_char(285,4712
+void draw_charscreen(296,4956
+void draw_vcs(311,5229
+void draw_char_mode(329,5671
+void draw_memory(347,5965
+
+src/graphic/sdl-driver.c,394
+SDL_Surface *le_screen;le_screen36,357
+unsigned int device_x_resolution;42,494
+unsigned int device_y_resolution;43,528
+int vid_mode 46,564
+int colortable[colortable48,583
+void init_display(101,1276
+void exit_display(115,1685
+void switch_flip(118,1730
+void DrawPixel(124,1804
+SDL_Surface *sdl_init_display(sdl_init_display184,3264
+void sdl_exit_display(202,3712
+void dot(206,3754
+
+src/graphic/gb.c,226
+struct tile 63,1698
+  char* pixelbyte[pixelbyte64,1712
+struct gbgraphic 67,1739
+  char* SCROLLX;68,1758
+  char* SCROLLY;69,1775
+  char* LCDC;70,1792
+  char* WNDPOSX;71,1806
+  char* WNDPOSY;72,1823
+  char* WX;73,1840
+
+src/graphic/bitmap.c,82
+void diagonale(43,423
+void draw_bitmap_memory(76,1266
+void clr_screen(111,2015
+
+src/graphic/graphic-main.c,130
+static int keepParsing 26,358
+struct cpu_state * stateptr;47,705
+void cp_byte(49,735
+void intHandler(58,841
+int main(87,1362
+
+src/graphic/chardev.c,124
+char vcs[vcs42,464
+void draw_char0(82,974
+void draw_char(110,1573
+void draw_vcs(114,1686
+void draw_txtbuffer(132,2093
+
+src/graphic/sdl-card.c,578
+#define MEMORY_SIZE 31,351
+#define MEMORY_CELL_SIZE 32,377
+static SDL_Surface *le_screen;le_screen37,443
+static unsigned int virtual_x_resolution 39,475
+static unsigned int virtual_y_resolution 40,523
+static unsigned int x_stretch 42,572
+static unsigned int y_stretch 43,607
+static unsigned int x_resolution;46,644
+static unsigned int y_resolution;47,678
+void DrawPixel(50,740
+void init_display(110,2200
+void exit_display(125,2551
+void dot(130,2590
+void draw_memory(155,2971
+void init_memory(186,3598
+int pixelnr(201,3898
+int bitpos(205,3963
+int adr(209,4032
+
+src/graphic/vc-main.c,192
+int vid_mode 23,298
+char vcsm[vcsm29,471
+int pixelnr(64,977
+int bitpos(68,1060
+int adr(72,1147
+void show_memory(76,1242
+void init_memory(86,1419
+void poke(102,1729
+int main(114,1999
+
+src/visualc64-code/visualc64-code/src/visual.c,1296
+#define MEMORY_SIZE 13,224
+#define SURFACE_WIDTH 14,270
+#define SURFACE_HEIGHT 15,299
+#define MEM_SURFACE_W	16,329
+#define MEM_SURFACE_H	17,358
+#define SURFACE_BPP 18,387
+#define RED_BITS 19,414
+#define GREEN_BITS 20,440
+#define BLUE_BITS 21,468
+#define ALPHA_BITS 22,495
+#define CELL_ALPHA_VALUE	23,523
+#define SCREEN_BACKGROUND_COLOR	24,555
+#define MOUSE_SELECTOR_COLOR	25,599
+#define CELL_BORDERS	26,640
+#define FPS 28,698
+#define FONT_PATH	29,719
+#define FONT_PTSIZE	30,777
+typedef struct mem_cell_s{mem_cell_s32,805
+	Uint8 value;33,832
+}mem_cell_t;mem_cell_t34,846
+typedef struct c64_s{c64_s36,860
+	mem_cell_t memory[memory37,882
+}c64_t;c64_t38,915
+typedef struct visualC64_s{visualC64_s40,924
+	SDL_Surface *screen;screen41,952
+	bool running;42,974
+	Uint16 mouse_drag_start_x;43,989
+	Uint16 mouse_drag_start_y;44,1017
+	SDL_Surface *mem_surface;mem_surface45,1045
+	SDL_Rect mem_dimensions;46,1096
+	SDL_Rect mem_visible_cells;47,1163
+	SDL_Rect mouse_selector;48,1255
+	TTF_Font *font;font49,1320
+	c64_t c64;50,1371
+}visualC64_t;visualC64_t51,1383
+static int draw_get_visual_cell_coords(54,1469
+static int draw_get_visual_cell(70,2359
+static int draw_handle_key(99,3440
+static int draw_cell(157,4982
+int screen_loop(209,6549
+int main(406,12328
+
+src/visualc64-code/visualc64-code/src/utils/utils.h,211
+	#define _UTILS_H 42,921
+		#define CURSystem 56,1205
+		#define CURSystem 59,1338
+		#define CURSystem 62,1474
+		#define CURSystem 64,1534
+#define xstr(69,1686
+#define str(70,1709
+#define printerr(97,2298
+
+src/visualc64-code/visualc64-code/src/utils/utils.c,425
+		#define CURSystem 48,1042
+		#define CURSystem 51,1175
+		#define CURSystem 54,1311
+		#define CURSystem 56,1371
+#define printf(60,1504
+#undef printerr 66,1683
+void printerr(89,2206
+bool util_isbigendian(116,3140
+void util_convertendian(127,3310
+int util_write_to_file(141,3742
+int util_read_from_file(170,4470
+inline int util_mk_2dmatrix(186,4871
+inline int util_set_bit(212,5540
+void util_mk_progress(241,6409
+
+src/visualc64-code/src/visual.c,1486
+char *shm;shm18,312
+#define  SHM_KEY 24,398
+#define MEMORY_SIZE 26,422
+#define SURFACE_WIDTH 27,468
+#define SURFACE_HEIGHT 28,497
+#define MEM_SURFACE_W	29,527
+#define MEM_SURFACE_H	30,556
+#define SURFACE_BPP 31,585
+#define RED_BITS 32,612
+#define GREEN_BITS 33,638
+#define BLUE_BITS 34,666
+#define ALPHA_BITS 35,693
+#define CELL_ALPHA_VALUE	36,721
+#define SCREEN_BACKGROUND_COLOR	37,753
+#define MOUSE_SELECTOR_COLOR	38,797
+#define CELL_BORDERS	39,838
+#define FPS 41,896
+#define FONT_PATH	42,917
+#define FONT_PTSIZE	43,975
+typedef struct mem_cell_s{mem_cell_s45,1003
+	Uint8 value;46,1030
+}mem_cell_t;mem_cell_t47,1044
+typedef struct c64_s{c64_s49,1058
+	mem_cell_t memory[memory50,1080
+}c64_t;c64_t51,1113
+typedef struct visualC64_s{visualC64_s53,1122
+	SDL_Surface *screen;screen54,1150
+	bool running;55,1172
+	Uint16 mouse_drag_start_x;56,1187
+	Uint16 mouse_drag_start_y;57,1215
+	SDL_Surface *mem_surface;mem_surface58,1243
+	SDL_Rect mem_dimensions;59,1294
+	SDL_Rect mem_visible_cells;60,1361
+	SDL_Rect mouse_selector;61,1453
+	TTF_Font *font;font62,1518
+	c64_t c64;63,1569
+}visualC64_t;visualC64_t64,1581
+Uint8 conv_byte2Uint8(66,1596
+void cp_Uint8tobyte(77,1779
+mem_cell_t *get_visual_cell_from_shm(get_visual_cell_from_shm92,2009
+static int draw_get_visual_cell_coords(98,2257
+static int draw_get_visual_cell(114,3147
+static int draw_handle_key(143,4228
+static int draw_cell(201,5770
+int screen_loop(253,7337
+int main(451,13179
+
+src/visualc64-code/src/utils/utils.h,211
+	#define _UTILS_H 42,921
+		#define CURSystem 56,1205
+		#define CURSystem 59,1338
+		#define CURSystem 62,1474
+		#define CURSystem 64,1534
+#define xstr(69,1686
+#define str(70,1709
+#define printerr(97,2298
+
+src/visualc64-code/src/utils/utils.c,425
+		#define CURSystem 48,1042
+		#define CURSystem 51,1175
+		#define CURSystem 54,1311
+		#define CURSystem 56,1371
+#define printf(60,1504
+#undef printerr 66,1683
+void printerr(89,2206
+bool util_isbigendian(116,3140
+void util_convertendian(127,3310
+int util_write_to_file(141,3742
+int util_read_from_file(170,4470
+inline int util_mk_2dmatrix(186,4871
+inline int util_set_bit(212,5540
+void util_mk_progress(241,6409
+
+src/monitor/monitor.c,849
+int gp_register_row 19,222
+int gp_register_col 20,247
+int mem_row 22,273
+int mem_col 23,290
+int stack_row 25,309
+int stack_col 26,328
+char dbr_back[dbr_back30,369
+char abr_back[abr_back31,388
+char rw_back;32,407
+char ir_back[ir_back33,421
+char ax_back[ax_back34,439
+char ax_back[17], bx_back[bx_back34,439
+char ax_back[17], bx_back[17], cx_back[cx_back34,439
+char ax_back[17], bx_back[17], cx_back[17],dx_back[dx_back34,439
+char sp_back[sp_back35,495
+char pc_back[pc_back36,513
+int reg2val(38,532
+void init_monitor(49,710
+void exit_monitor(60,868
+void print_general_purpose_register(65,932
+void monitor_memory(72,1227
+void monitor_stack(83,1611
+void save_monitor(97,2045
+void print_registers(115,2374
+  struct monitored_reg 116,2398
+	char *reg;reg117,2423
+	char reg_name[reg_name118,2435
+void monitor(150,3296
+
+src/monitor/debuger.c,223
+#define MAX_BREAKPOINTS 11,104
+char *breakpointers[breakpointers12,134
+int position;13,175
+void init_breaks(15,190
+int same_adr_p(25,331
+int check4break(35,502
+void add_breakpoint(45,664
+void del_breakpoint(52,857
+
+src/cpu/adr-modes.c,329
+void proc_absolut(18,233
+void proc_zero_read(36,502
+void txx(51,734
+char* edata_abindex(55,798
+char* edata_abs(71,1048
+char* edata_imm(85,1239
+char*edata_zp(edata_zp97,1376
+char*edata_zp2(edata_zp2116,1641
+char*edata_zpindex(edata_zpindex132,1870
+char*edata_izx(edata_izx149,2153
+char*edata_izy(edata_izy184,2717
+
+src/cpu/cpu-main.c,273
+void print1(30,466
+void printflags(33,537
+void print_stack(43,804
+void print_registers(51,996
+void print_tester(76,1599
+ void printm(84,1818
+void print_register_fetch1(96,2251
+void print_register_exec(118,3286
+void print_register_exec1(141,4325
+int main(174,5601
+
+src/cpu/mu-code.c,5239
+void cmp(24,394
+void load(49,878
+void flagging(56,966
+int k_two2int(70,1192
+void pop1(93,1609
+void push1(109,1873
+void cpu_6502_bpl_rel(171,3108
+void pc_relative(204,3692
+void cpu_6502_bmi_rel(240,4341
+void cpu_6502_bvc_rel(274,4853
+void cpu_6502_bvs_rel(296,5134
+void cpu_6502_bcc_rel(317,5428
+void cpu_6502_bcs_rel(338,5716
+void cpu_6502_bne_rel(358,6000
+void cpu_6502_beq_rel(379,6289
+void cpu_6502_brk_imp(413,6828
+void cpu_6502_rti_imp(450,7428
+void cpu_6502_jsr_abs(468,7664
+void cpu_6502_rts_imp(499,8148
+void cpu_6502_jmp_abs(516,8360
+void cpu_6502_jmp_ind(551,8908
+void cpu_6502_bit_zp(604,9789
+void cpu_6502_bit_abs(648,10534
+void cpu_6502_clc_imp(709,11597
+void cpu_6502_sec_imp(725,11804
+void cpu_6502_cld_imp(741,12009
+void cpu_6502_sed_imp(757,12212
+void cpu_6502_cli_imp(773,12413
+void cpu_6502_sei_imp(789,12618
+void cpu_6502_clv_imp(805,12821
+void cpu_6502_nop_imp(821,13028
+void cpu_6502_lda_imm(836,13211
+void cpu_6502_lda_zp(859,13480
+void cpu_6502_lda_zpx 892,13935
+void cpu_6502_lda_izx(921,14342
+void cpu_6502_lda_izy(969,15065
+void cpu_6502_lda_abs(1017,15975
+void cpu_6502_lda_abx 1060,16592
+void cpu_6502_lda_aby(1091,17136
+void cpu_6502_sta_zp(1121,17677
+void cpu_6502_sta_zpx 1149,18105
+void cpu_6502_sta_izx(1178,18575
+void cpu_6502_sta_izy(1223,19251
+void cpu_6502_sta_abs(1267,19920
+void cpu_6502_sta_abx 1307,20483
+void cpu_6502_sta_aby(1348,21133
+void cpu_6502_ldx_imm(1390,21825
+void cpu_6502_ldx_zp(1415,22164
+void cpu_6502_ldx_zpy(1446,22619
+void cpu_6502_ldx_abs(1479,23151
+void cpu_6502_ldx_aby(1497,23414
+void cpu_6502_stx_zp(1524,23802
+void cpu_6502_stx_zpy(1557,24269
+void cpu_6502_stx_abs(1589,24748
+void cpu_6502_ldy_imm(1615,25111
+void cpu_6502_ldy_zp(1640,25448
+void cpu_6502_ldy_zpx 1671,25903
+void cpu_6502_ldy_abs(1703,26411
+void cpu_6502_ldy_abx 1733,26798
+void cpu_6502_sty_zp(1762,27294
+void store(1785,27594
+void cpu_6502_sty_zpx 1802,27830
+void cpu_6502_sty_abs(1833,28241
+void cpu_6502_tax_imp(1856,28555
+void cpu_6502_txa_imp(1873,28778
+void cpu_6502_tay_imp(1890,29001
+void cpu_6502_tya_imp(1907,29224
+void cpu_6502_tsx_imp(1924,29447
+void cpu_6502_txs_imp(1941,29669
+void cpu_6502_pla_imp(1957,29869
+void cpu_6502_pha_imp(1975,30093
+void cpu_6502_plp_imp(1991,30292
+void cpu_6502_php_imp(2008,30517
+void cpu_6502_ora_imm(2024,30721
+void cpu_6502_ora_zp(2042,30976
+void cpu_6502_ora_zpx 2060,31231
+void cpu_6502_ora_izx(2078,31495
+void cpu_6502_ora_izy(2096,31752
+void cpu_6502_ora_abs(2114,32007
+void cpu_6502_ora_abx 2132,32264
+void cpu_6502_ora_aby(2150,32529
+void cpu_6502_and_imm(2168,32786
+void cpu_6502_and_zp(2187,33071
+void cpu_6502_and_zpx 2206,33357
+void cpu_6502_and_izx(2225,33652
+void cpu_6502_and_izy(2244,33940
+void cpu_6502_and_abs(2263,34226
+void cpu_6502_and_abx 2282,34514
+void cpu_6502_and_aby(2301,34810
+void cpu_6502_eor_imm(2320,35106
+void cpu_6502_eor_zp(2338,35363
+void cpu_6502_eor_zpx 2356,35621
+void cpu_6502_eor_izx(2374,35888
+void cpu_6502_eor_izy(2392,36148
+void cpu_6502_eor_abs(2410,36406
+void cpu_6502_eor_abx 2428,36666
+void cpu_6502_eor_aby(2446,36934
+void cpu_6502_adc_imm(2464,37192
+void cpu_6502_adc_zp(2482,37456
+void cpu_6502_adc_zpx 2500,37720
+void cpu_6502_adc_izx(2518,37993
+void cpu_6502_adc_izy(2536,38259
+void cpu_6502_adc_abs(2554,38523
+void cpu_6502_adc_abx 2572,38789
+void cpu_6502_adc_aby(2590,39063
+void cpu_6502_sbc_imm(2608,39332
+void cpu_6502_sbc_zp(2626,39595
+void cpu_6502_sbc_zpx 2644,39859
+void cpu_6502_sbc_izx(2662,40132
+void cpu_6502_sbc_izy(2680,40398
+void cpu_6502_sbc_abs(2698,40662
+void cpu_6502_sbc_abx 2716,40928
+void cpu_6502_sbc_aby(2734,41202
+void cpu_6502_cmp_imm(2752,41468
+void cpu_6502_cmp_zp(2771,41704
+void cpu_6502_cmp_zpx 2789,41942
+void cpu_6502_cmp_izx(2808,42192
+void cpu_6502_cmp_izy(2827,42433
+void cpu_6502_cmp_abs(2846,42672
+void cpu_6502_cmp_abx 2865,42913
+void cpu_6502_cmp_aby(2884,43162
+void cpu_6502_cpx_imm(2902,43405
+void cpu_6502_cpx_zp(2921,43643
+void cpu_6502_cpx_abs(2940,43880
+void cpu_6502_cpy_imm(2959,44171
+void cpu_6502_cpy_zp(2977,44408
+void cpu_6502_cpy_abs(2996,44643
+void cpu_6502_dec_zp(3014,44887
+void cpu_6502_dec_zpx 3034,45212
+void cpu_6502_dec_abs(3054,45544
+void cpu_6502_dec_abx 3074,45872
+void cpu_6502_dex_imp(3094,46199
+void cpu_6502_dey_imp(3111,46451
+void cpu_6502_inc_zp(3130,46776
+void cpu_6502_inc_zpx 3151,47104
+void cpu_6502_inc_abs(3171,47437
+void cpu_6502_inc_abx 3191,47765
+void cpu_6502_inx_imp(3211,48090
+void cpu_6502_iny_imp(3229,48372
+void cpu_6502_asl_imp(3247,48659
+void cpu_6502_asl_zp(3264,48888
+void cpu_6502_asl_zpx 3284,49199
+void cpu_6502_asl_abs(3304,49517
+void cpu_6502_asl_abx 3324,49830
+void cpu_6502_rol_imp(3344,50149
+void cpu_6502_rol_zp(3360,50379
+void cpu_6502_rol_zpx 3380,50692
+void cpu_6502_rol_abs(3400,51012
+void cpu_6502_rol_abx 3420,51327
+void cpu_6502_lsr_imp(3440,51644
+void cpu_6502_lsr_zp(3457,51873
+void cpu_6502_lsr_zpx 3477,52184
+void cpu_6502_lsr_abs(3497,52502
+void cpu_6502_lsr_abx 3517,52815
+void cpu_6502_ror_imp(3537,53138
+void cpu_6502_ror_zp(3554,53373
+void cpu_6502_ror_zpx 3574,53690
+void cpu_6502_ror_abs(3594,54014
+void cpu_6502_ror_abx 3614,54333
+
+src/cpu/cpu.c,832
+int keyboardchar;31,490
+char *dbr;dbr42,612
+char *abrl;abrl44,668
+char *abrh;abrh45,680
+char read_write;47,710
+char *ir;ir49,750
+int cycles_sum;52,771
+int cycles;53,787
+char *acc;acc58,836
+char *idx;idx61,866
+char *idyidy62,877
+char *sp;sp65,909
+char *pcl;pcl68,940
+char *pch;pch69,951
+char *flags;flags72,972
+char *zero,zero76,1004
+char *zero, *one;one76,1004
+struct cpu_state * init_states(78,1023
+struct cpu_state *copy_state(copy_state83,1144
+struct cpu_state *restore_state(restore_state100,1737
+void save_state(119,2359
+void load_state(136,3373
+void trace(152,3793
+void cpu_6502_init(156,3811
+void cpu_6502_reset(179,4438
+void interrupts(201,4919
+void fetch(227,5460
+void* getop(240,5661
+void *decode(decode251,5885
+void execute(266,6206
+void fetch_decode_execute_cycle(275,6310
+
+src/cpu/decode.c,210
+struct cpu_operator operations[operations39,699
+void init_operations(201,16106
+int op_code_cmp 208,16284
+struct cpu_operator* operation_lookup(212,16382
+void (*lookup_operation(lookup_operation225,16769
+
+src/cpu/cpu-util.c,340
+int pc2int(19,201
+char* parse_6502_register_name(27,327
+void cpu_6502_register_dump(58,739
+int conv_bitstr2int(91,1574
+int conv_2register2int(102,1812
+void set_rw2read(118,2154
+void set_rw2write(122,2198
+void inc_pc(126,2244
+void dec_pc(150,2560
+void dec_2register(174,2876
+void inc_register(197,3214
+void dec_register(211,3424
+
+src/cpu/flags.c,543
+void clearCarryflag(9,69
+void setCarryflag(12,134
+char getCarryflag(15,197
+void clearZeroflag(18,261
+void setZeroflag(21,325
+char getZeroflag(24,387
+void clearIRQflag(27,450
+void setIRQflag(30,513
+char getIRQflag(33,574
+void clearDflag(36,636
+void setDflag(39,697
+char getDflag(42,756
+void clearBRKflag(45,816
+void setBRKflag(48,879
+char getBRKflag(51,940
+void clearOverflowflag(54,1002
+void setOverflowflag(57,1070
+char getOverflowflag(60,1136
+void clearSignflag(63,1203
+void setSignflag(66,1267
+char getSignflag(69,1329
+
+src/cpu/mu.c,5285
+void cmp(22,392
+void zsflagging(34,651
+void flagging(48,864
+int k_two2int(62,1090
+void pop1(84,1462
+void push1(101,1753
+void nano_code_push_pc(112,1923
+void nano_code_pop_pc(132,2292
+void cpu_6502_bpl_rel(163,2808
+void pc_relative(188,3311
+void cpu_6502_bmi_rel(213,3756
+void cpu_6502_bvc_rel(242,4222
+void cpu_6502_bvs_rel(263,4487
+void cpu_6502_bcc_rel(283,4767
+void cpu_6502_bcs_rel(303,5041
+void cpu_6502_bne_rel(322,5311
+void cpu_6502_beq_rel(342,5586
+void cpu_6502_brk_imp(375,6111
+void cpu_6502_rti_imp(411,6697
+void cpu_6502_jsr_abs(428,6919
+void cpu_6502_rts_imp(458,7389
+void cpu_6502_jmp_abs(474,7584
+void cpu_6502_jmp_ind(508,8116
+void cpu_6502_bit_zp(560,8983
+void cpu_6502_bit_abs(603,9714
+void cpu_6502_clc_imp(663,10761
+void cpu_6502_sec_imp(678,10954
+void cpu_6502_cld_imp(693,11145
+void cpu_6502_sed_imp(708,11334
+void cpu_6502_cli_imp(723,11521
+void cpu_6502_sei_imp(738,11712
+void cpu_6502_clv_imp(753,11901
+void cpu_6502_nop_imp(768,12094
+void cpu_6502_lda_imm(782,12263
+void cpu_6502_lda_zp(813,12677
+void cpu_6502_lda_zpx 845,13094
+void cpu_6502_lda_izx(873,13463
+void cpu_6502_lda_izy(919,14147
+void cpu_6502_lda_abs(964,14995
+void cpu_6502_lda_abx 1006,15583
+void cpu_6502_lda_aby(1036,16124
+void cpu_6502_sta_zp(1065,16635
+void cpu_6502_sta_zpx 1092,17049
+void cpu_6502_sta_izx(1120,17505
+void cpu_6502_sta_izy(1164,18167
+void cpu_6502_sta_abs(1207,18822
+void cpu_6502_sta_abx 1245,19376
+void cpu_6502_sta_aby(1286,20069
+void cpu_6502_ldx_imm(1327,20747
+void cpu_6502_ldx_zp(1351,21048
+void cpu_6502_ldx_zpy(1380,21464
+void cpu_6502_ldx_abs(1411,21957
+void cpu_6502_ldx_aby(1427,22181
+void cpu_6502_stx_zp(1453,22542
+void cpu_6502_stx_zpy(1485,22995
+void cpu_6502_stx_abs(1516,23460
+void cpu_6502_ldy_imm(1542,23821
+void cpu_6502_ldy_zp(1566,24122
+void cpu_6502_ldy_zpx 1595,24538
+void cpu_6502_ldy_abs(1626,25032
+void cpu_6502_ldy_abx 1640,25205
+void cpu_6502_sty_zp(1654,25376
+void cpu_6502_sty_zpx 1668,25548
+void cpu_6502_sty_abs(1682,25720
+void cpu_6502_tax_imp(1696,25888
+void cpu_6502_txa_imp(1711,26072
+void cpu_6502_tay_imp(1731,26335
+void cpu_6502_tya_imp(1746,26519
+void cpu_6502_tsx_imp(1766,26782
+void cpu_6502_txs_imp(1781,26965
+void cpu_6502_pla_imp(1796,27151
+void cpu_6502_pha_imp(1816,27414
+void cpu_6502_plp_imp(1831,27599
+void cpu_6502_php_imp(1846,27785
+void cpu_6502_ora_imm(1861,27975
+void cpu_6502_ora_zp(1878,28215
+void cpu_6502_ora_zpx 1895,28456
+void cpu_6502_ora_izx(1912,28706
+void cpu_6502_ora_izy(1929,28949
+void cpu_6502_ora_abs(1946,29190
+void cpu_6502_ora_abx 1963,29433
+void cpu_6502_ora_aby(1980,29684
+void cpu_6502_and_imm(1997,29927
+void cpu_6502_and_zp(2015,30198
+void cpu_6502_and_zpx 2033,30470
+void cpu_6502_and_izx(2051,30751
+void cpu_6502_and_izy(2069,31025
+void cpu_6502_and_abs(2087,31297
+void cpu_6502_and_abx 2105,31571
+void cpu_6502_and_aby(2123,31853
+void cpu_6502_eor_imm(2141,32135
+void cpu_6502_eor_zp(2158,32378
+void cpu_6502_eor_zpx 2175,32622
+void cpu_6502_eor_izx(2192,32875
+void cpu_6502_eor_izy(2209,33121
+void cpu_6502_eor_abs(2226,33365
+void cpu_6502_eor_abx 2243,33611
+void cpu_6502_eor_aby(2260,33865
+void cpu_6502_adc_imm(2277,34109
+void cpu_6502_adc_zp(2294,34358
+void cpu_6502_adc_zpx 2311,34608
+void cpu_6502_adc_izx(2328,34867
+void cpu_6502_adc_izy(2345,35119
+void cpu_6502_adc_abs(2362,35369
+void cpu_6502_adc_abx 2379,35621
+void cpu_6502_adc_aby(2396,35881
+void cpu_6502_sbc_imm(2413,36136
+void cpu_6502_sbc_zp(2430,36386
+void cpu_6502_sbc_zpx 2447,36637
+void cpu_6502_sbc_izx(2464,36897
+void cpu_6502_sbc_izy(2481,37150
+void cpu_6502_sbc_abs(2498,37401
+void cpu_6502_sbc_abx 2515,37654
+void cpu_6502_sbc_aby(2532,37915
+void cpu_6502_cmp_imm(2549,38168
+void cpu_6502_cmp_zp(2567,38438
+void cpu_6502_cmp_zpx 2584,38660
+void cpu_6502_cmp_izx(2602,38928
+void cpu_6502_cmp_izy(2620,39189
+void cpu_6502_cmp_abs(2638,39448
+void cpu_6502_cmp_abx 2656,39709
+void cpu_6502_cmp_aby(2674,39978
+void cpu_6502_cpx_imm(2692,40242
+void cpu_6502_cpx_zp(2710,40500
+void cpu_6502_cpx_abs(2728,40757
+void cpu_6502_cpy_imm(2746,41014
+void cpu_6502_cpy_zp(2764,41272
+void cpu_6502_cpy_abs(2782,41529
+void cpu_6502_dec_zp(2800,41794
+void cpu_6502_dec_zpx 2818,42078
+void cpu_6502_dec_abs(2836,42369
+void cpu_6502_dec_abx 2854,42655
+void cpu_6502_dex_imp(2872,42940
+void cpu_6502_dey_imp(2887,43111
+void cpu_6502_inc_zp(2905,43421
+void cpu_6502_inc_zpx 2923,43705
+void cpu_6502_inc_abs(2941,43996
+void cpu_6502_inc_abx 2959,44282
+void cpu_6502_inx_imp(2977,44567
+void cpu_6502_iny_imp(2994,44835
+void cpu_6502_asl_imp(3011,45108
+void cpu_6502_asl_zp(3027,45323
+void cpu_6502_asl_zpx 3046,45621
+void cpu_6502_asl_abs(3065,45926
+void cpu_6502_asl_abx 3084,46226
+void cpu_6502_rol_imp(3103,46532
+void cpu_6502_rol_zp(3119,46749
+void cpu_6502_rol_zpx 3138,47049
+void cpu_6502_rol_abs(3157,47356
+void cpu_6502_rol_abx 3176,47658
+void cpu_6502_lsr_imp(3195,47962
+void cpu_6502_lsr_zp(3211,48177
+void cpu_6502_lsr_zpx 3230,48475
+void cpu_6502_lsr_abs(3249,48780
+void cpu_6502_lsr_abx 3268,49080
+void cpu_6502_ror_imp(3287,49390
+void cpu_6502_ror_zp(3303,49611
+void cpu_6502_ror_zpx 3322,49915
+void cpu_6502_ror_abs(3341,50226
+void cpu_6502_ror_abx 3360,50532
+
+src/cia/cia.c,1094
+char PRA[PRA22,283
+char PRB[PRB23,308
+char cia_port_a_buffer[cia_port_a_buffer24,333
+char cia_port_b_buffer[cia_port_b_buffer25,372
+char dataportbread[dataportbread28,413
+char dataportbwrite[dataportbwrite29,448
+char DDRA[DDRA31,485
+char DDRB[DDRB32,511
+char timer_latch_low_a[timer_latch_low_a33,537
+char timer_latch_low_b[timer_latch_low_b34,576
+char timer_latch_high_a[timer_latch_high_a35,615
+char timer_latch_high_b[timer_latch_high_b36,655
+char timer_counter_low_a[timer_counter_low_a38,696
+char timer_counter_low_b[timer_counter_low_b39,737
+char timer_counter_high_a[timer_counter_high_a40,778
+char timer_counter_high_b[timer_counter_high_b41,820
+char icr_read[icr_read43,863
+char icr_write[icr_write44,893
+char control_a[control_a46,925
+char control_b[control_b48,957
+void read(50,989
+void write_cra(89,1379
+void read_PRA(97,1549
+cia_start_timer_a(101,1606
+Uint8 conv_byte2int(109,1846
+static clock_t _current_time 122,2075
+void start_timer(125,2135
+int* g_start_timer(139,2399
+void timer_a_underflow(166,3304
+int current_time(180,3558
+
+src/cia/cia-main.c,64
+char *shm;shm11,128
+#define  SHB_KEY 12,139
+int main(13,162
+
+src/include/register.h,24
+#define REG_WIDTH 7,44
+
+src/include/display.h,27
+#define _DISPLAY_H_11,110
+
+src/include/monitor.h,25
+#define _MONITOR_H_8,70
+
+src/include/chardotmatrix.h,158
+unsigned int ndots 1,0
+unsigned int mdots 2,24
+unsigned int maxchar 3,48
+unsigned char charscreen[charscreen5,76
+char *dot5x8matrix[dot5x8matrix23,278
+
+src/include/decode.h,359
+struct cpu_operator 9,79
+  char *name;name10,101
+  int opcode;11,115
+  void (* const opfunction)12,129
+  char *adrmode;adrmode13,198
+  char *info;info14,215
+  char *mnemonic;mnemonic15,229
+  char *action;action16,247
+  char *flagsettings;flagsettings17,263
+struct cpu_operator operations[operations21,290
+size_t operations_array_size;22,324
+
+src/include/cpu.h,431
+#define _6502_CPU_H_8,64
+#define ADDR_WIDTH 10,86
+typedef char* cpu_register;13,110
+struct cpu_state 84,1108
+  char  abrl[abrl85,1127
+char abrh[abrh86,1154
+  char dbr[dbr87,1178
+char acc[acc89,1206
+char idx[idx90,1229
+char idy[idy91,1252
+char sp[sp92,1275
+char pcl[pcl93,1297
+char pch[pch94,1320
+char flags[flags95,1343
+char ir[ir96,1368
+struct cpu_state * save_base;98,1407
+#define STATES_SIZE 99,1437
+
+src/include/sdl-driver.h,175
+#define _SDLDRIVER_H_11,101
+unsigned int virtual_x_resolution;14,141
+unsigned int virtual_y_resolution;15,176
+unsigned int x_stretch;17,212
+unsigned int y_stretch;18,236
+
+src/include/chardev.h,121
+struct charmapentry12,134
+  int ix;14,156
+  unsigned char symbol;15,191
+  char * namestr;16,255
+char vcs[vcs24,547
+
+src/include/sdl-waveform-generator.h,42
+#define SNDFMT 1,0
+#define SMPFREQ 2,21
+
+src/include/alu.h,28
+#define _ALU_HEADER_24,437
+
+src/include/bitmap.h,21
+int videobase 13,96
+
+src/include/opcodes.h,2897
+#define CPU_OPCODE_MOV_REGISTER_DIREKT_REGISTER_DIREKT 11,137
+#define CPU_OPCODE_MOV_REGISTER_DIREKT_REGISTER_INDIREKT 12,209
+#define CPU_OPCODE_MOV_REGISTER_DIREKT_ADDRESS 13,284
+#define CPU_OPCODE_MOV_REGISTER_INDIREKT_REGISTER_DIREKT 14,349
+#define CPU_OPCODE_MOV_REGISTER_INDIREKT_REGISTER_INDIREKT 15,424
+#define CPU_OPCODE_MOV_REGISTER_INDIREKT_ADDRESS 16,501
+#define CPU_OPCODE_MOV_ADDRESS_REGISTER_DIREKT 17,568
+#define CPU_OPCODE_MOV_ADDRESS_REGISTER_INDIREKT 18,633
+#define CPU_OPCODE_MOV_ADDRESS_ADDRESS 19,700
+#define CPU_OPCODE_MOV_IMMEDIATE_REGISTER 20,757
+#define CPU_OPCODE_MOV_IMMEDIATE_REGISTER_INDIREKT 21,817
+#define CPU_OPCODE_MOV_IMMEDIATE_ADDRESS 22,887
+#define CPU_OPCODE_AND 27,973
+#define CPU_OPCODE_OR 28,1015
+#define CPU_OPCODE_XOR 29,1056
+#define CPU_OPCODE_NOT 30,1098
+#define CPU_OPCODE_JMP 37,1184
+#define CPU_OPCODE_JCC 40,1247
+#define CPU_OPCODE_JF 43,1303
+#define CPU_OPCODE_JNF 44,1345
+#define CPU_OPCODE_JR 47,1412
+#define CPU_OPCODE_ADD 52,1486
+#define CPU_OPCODE_SUB 53,1529
+#define CPU_OPCODE_ADC 54,1572
+#define CPU_OPCODE_SBB 55,1615
+#define CPU_OPCODE_INC 56,1658
+#define CPU_OPCODE_DEC 57,1701
+#define CPU_OPCODE_NEG 58,1744
+#define CPU_OPCODE_CMP 59,1787
+#define CPU_OPCODE_PUSH 64,1853
+#define CPU_OPCODE_POP 65,1897
+#define CPU_OPCODE_CALL 66,1940
+#define CPU_OPCODE_RET 67,1984
+#define CPU_OPCODE_RESET 72,2054
+#define CPU_OPCODE_SHIFT 73,2099
+#define CPU_OPCODE_ROTATE 74,2144
+#define CPU_OPCODE_NOP 75,2190
+#define CPU_OPCODE_HALT 76,2233
+#define CPU_OPCODE_AX 81,2295
+#define CPU_OPCODE_BX 82,2319
+#define CPU_OPCODE_CX 83,2343
+#define CPU_OPCODE_DX 84,2367
+#define CPU_OPCODE_CC_A 89,2419
+#define CPU_OPCODE_CC_NBE 90,2459
+#define CPU_OPCODE_CC_AE 91,2502
+#define CPU_OPCODE_CC_NB 92,2544
+#define CPU_OPCODE_CC_B 93,2586
+#define CPU_OPCODE_CC_NAE 94,2627
+#define CPU_OPCODE_CC_BE 95,2670
+#define CPU_OPCODE_CC_NA 96,2712
+#define CPU_OPCODE_CC_E 97,2754
+#define CPU_OPCODE_CC_G 98,2795
+#define CPU_OPCODE_CC_NLE 99,2836
+#define CPU_OPCODE_CC_GE 100,2880
+#define CPU_OPCODE_CC_NL 101,2923
+#define CPU_OPCODE_CC_L 102,2966
+#define CPU_OPCODE_CC_NGE 103,3008
+#define CPU_OPCODE_CC_LE 104,3052
+#define CPU_OPCODE_CC_NG 105,3095
+#define CPU_OPCODE_CC_NE 106,3139
+#define CPU_OPCODE_JFC_C 111,3233
+#define CPU_OPCODE_JFC_Z 112,3260
+#define CPU_OPCODE_JFC_S 113,3287
+#define CPU_OPCODE_JFC_O 114,3314
+#define CPU_OPCODE_JFC_NC 119,3395
+#define CPU_OPCODE_JFC_NZ 120,3423
+#define CPU_OPCODE_JFC_NO 121,3451
+#define CPU_OPCODE_JFC_NS 122,3479
+#define CPU_OPCODE_JMP_REGISTER_INDIREKT 127,3543
+#define CPU_OPCODE_JMP_IMMEDIATE 128,3586
+#define CPU_OPCODE_XRC_AX 133,3652
+#define CPU_OPCODE_XRC_BX 134,3680
+#define CPU_OPCODE_XRC_CX 135,3708
+#define CPU_OPCODE_XRC_DX 136,3736
+#define CPU_OPCODE_XRC_PC 137,3764
+#define CPU_OPCODE_XRC_SP 138,3793
+#define CPU_OPCODE_SETT 143,3856
+
+src/include/vc.h,21
+#define _VC_H_11,86
+
+src/include/memory.h,155
+#define MEMORY_SIZE 6,19
+#define MEMORY_CELL_SIZE 8,119
+#define READ 9,174
+#define WRITE 10,191
+#define ADDR_WIDTH 11,209
+char *memory[memory25,393
+
+src/include/alu-opcodes.h,467
+ #define ALU_OP_RESET 4,21
+ #define ALU_OP_ADD 5,45
+ #define ALU_OP_SUB 6,67
+ #define ALU_OP_AND 7,89
+ #define ALU_OP_OR 8,111
+ #define ALU_OP_XOR 9,132
+ #define ALU_OP_NEG_A 10,154
+ #define ALU_OP_NEG_B 11,178
+ #define ALU_OP_NOT_A 12,202
+ #define ALU_OP_NOT_B 13,226
+ #define ALU_OP_ADD_WITH_CARRY 14,250
+#define ALU_OP_SUB_WITH_CARRY 15,284
+ #define ALU_OP_ASL 16,317
+ #define ALU_OP_LSR 17,340
+ #define ALU_OP_ROL 18,363
+#define ALU_OP_ROR 19,386
+
+src/cmdline/parser.c,102
+static char *line_read line_read40,553
+rl_gets 45,673
+char * read_line(67,1081
+void repl(71,1160
+
+src/cmdline/src-ripper.c,192
+#define LINE_LENGTH 8,82
+char src[src10,106
+void init_src(11,142
+void src_print(19,257
+void src_table(24,337
+char *src_line(src_line32,455
+char * src_str(39,543
+void src_read(47,638
+
+src/sound/snd2.c,273
+unsigned int sampleFrequency 21,323
+unsigned int audioBufferSize 22,357
+unsigned int outputAudioBufferSize 23,391
+unsigned int freq1 25,432
+unsigned int fase1 26,460
+unsigned int freq2 27,484
+unsigned int fase2 28,511
+void example_mixaudio(30,536
+int main(55,1322
+
+src/sound/sound3.c,96
+Mix_Music *music music8,179
+int main(13,263
+void handleKey(69,1734
+void musicDone(114,3097
+
+src/sound/sdl-waveform-generator.c,1143
+double pi 19,283
+int music[music22,339
+float sqrt12 23,389
+int mem0size=25,418
+float frequency(29,456
+Uint32 sound_len;37,557
+SNDFMT *sound_buffer;sound_buffer38,576
+Uint32 sound_pos 39,599
+int counter;40,622
+int adsr=42,637
+int copyintomem=47,769
+SNDFMT* mem[mem48,788
+double SR 50,818
+int ylinesize 51,838
+int gate 53,896
+double Hz=54,909
+struct asdr 63,983
+  float attack;64,997
+  float decay;65,1013
+  float sustainlevel;66,1028
+  float sustainmax 67,1050
+  float release 68,1072
+  char *name;name69,1090
+int instrument 72,1140
+struct asdr asdrenvelope[asdrenvelope73,1160
+void copy_buffer(112,1716
+void write_buffer(123,1890
+float envelope2(133,2060
+float envelope(136,2106
+float sinwave(200,4023
+float squarewave(204,4114
+float lin(212,4274
+float sawtoothwave(215,4308
+float sinsquarewave(225,4654
+float dutypcmwave(245,5225
+float trianglewave(255,5399
+float noisewave(271,5730
+struct fir 276,5785
+  double b0;277,5798
+  double b1;278,5811
+  double b2;279,5824
+  double b3;280,5837
+  double b4;281,5850
+  double b5;282,5863
+struct fir firfilterstruct;285,5880
+double firfilter(288,5949
+
+src/sound/snd.c,438
+const int AMPLITUDE 22,1274
+const int FREQUENCY 23,1303
+struct BeepObject27,1523
+    double freq;29,1543
+    int samplesLeft;30,1560
+class Beeper35,1745
+    double v;Beeper::v38,1769
+    std::queue<BeepObject> beeps;Beeper::beeps39,1783
+Beeper::Beeper(50,2256
+Beeper::~Beeper(70,2697
+void audio_callback(77,3077
+void Beeper::generateSamples(88,3451
+void Beeper::beep(127,4865
+void Beeper::wait(140,5365
+int main(156,5845
+
+src/sound/sound-main.c,1368
+#define _USE_MATH_DEFINES7,120
+#define WAVEFORM_LENGTH 12,203
+double smp_index06;14,233
+float smp_index05;15,253
+float smp_index04;16,272
+float smp_index03;17,291
+int tonstufe=18,310
+float*savebuffer;savebuffer21,329
+struct adsr_struct0 22,347
+  float a_attack;23,369
+  float a_decay;24,387
+  float	b_decay;25,404
+  float a_release;26,421
+  float b_release;27,440
+  int gate;28,459
+  int adsr_counter;29,471
+  int sustain_start;30,491
+} instrument[instrument31,512
+SNDFMT* smpls;34,532
+SDL_Surface *screen;screen36,548
+int xres 37,569
+int yres 38,585
+SDL_AudioSpec spec;40,603
+Uint32 sound_len;52,860
+SNDFMT *sound_buffer;sound_buffer53,879
+int counter;55,927
+int Hz;58,943
+double amplitude=59,951
+int volume=61,976
+void play 97,1680
+SNDFMT * snd_load(101,1727
+	FILE *foutp;foutp121,2181
+void save(122,2195
+void saveadsr(132,2426
+void savestream(142,2660
+SNDFMT* gen_sin_buffer(153,2895
+SNDFMT* gen_sawtooth_buffer(166,3282
+SNDFMT* gen_triangle_buffer(178,3623
+SNDFMT* gen_square_buffer(195,4215
+SNDFMT* gen_pwm_buffer(212,4678
+double smp_index 231,5167
+double freq 232,5189
+int waveform=252,5556
+void handleKey(254,5573
+int gen_adsr_buffer(322,7265
+int adsr_length=401,8989
+float *adsr_buffer=adsr_buffer402,9008
+float ton2frequency(436,9764
+void adsrEffect(442,9894
+void mix_adsr(490,11529
+int main(511,12052
+
+src/sound/synthesiser.c,554
+#define SNDFMT 12,202
+double twopi 25,402
+  double x1,38,710
+  double x1, y1;38,710
+  double a,39,727
+  double a, b;39,727
+} lowpass_t;40,742
+void init_lowpass(44,808
+double update_lowpass(55,1006
+  double phase;73,1204
+  double aNQ;74,1247
+  double curcps;75,1295
+  double curper;76,1362
+  lowpass_t leaky;77,1426
+  double N;78,1468
+  double a;79,1504
+  double aN;80,1567
+} blit_t;81,1608
+void init_blit(96,1997
+double update_blit(112,2351
+static int clipped 166,3713
+static SNDFMT ADC_out(169,3770
+void main_synthesiser(193,4147
+
+src/sound/audio-sdl.c,520
+typedef struct sound_s 10,177
+    Uint8 *samples;samples11,202
+    Uint32 length;12,249
+} sound_t, *sound_p;sound_p13,303
+typedef struct playing_s 16,372
+    int active;17,399
+    sound_p sound;18,470
+    Uint32 position;19,527
+} playing_t, *playing_p;playing_p20,602
+#define MAX_PLAYING_SOUNDS 23,670
+playing_t playing[playing24,705
+#define VOLUME_PER_SOUND 29,922
+void AudioCallback(34,1154
+int LoadAndConvertSound(78,2410
+void ClearPlayingSounds(141,4383
+int PlaySound(153,4697
+int main(178,5255
+
+src/sound/snd1.c,273
+unsigned int sampleFrequency 21,323
+unsigned int audioBufferSize 22,357
+unsigned int outputAudioBufferSize 23,391
+unsigned int freq1 25,432
+unsigned int fase1 26,459
+unsigned int freq2 27,483
+unsigned int fase2 28,510
+void example_mixaudio(30,535
+int main(55,1321
+
+src/memory/memory-map.c,106
+char * irq;6,42
+char * dbr;7,54
+char * abrl;8,66
+char * abrh;9,79
+char * rw;10,92
+access_bus(12,104
+
+src/memory/memory.c,849
+char *memory[memory75,1594
+#define BREAK_IRQ_HANDLER 83,1907
+#define RESET_IRQ_HANDLER 84,1941
+#define NMI_IRQ_HANDLER 85,1975
+#define BREAK 87,2009
+#define RESET 88,2031
+#define NMI 89,2053
+void init_shared_memory(95,2128
+void init_memory_classic(152,3254
+void init_memory(166,3531
+void free_shared_memory(174,3629
+void free_memory(178,3660
+void free_memory_classic(182,3711
+int conv_byte2int(195,3901
+int conv_addr2int(206,4093
+void cp_dbr2memory(221,4403
+void cp_byte2mem(228,4564
+void cp_int2mem(235,4722
+void cp_adr2mem(241,4855
+void cp_memory2dbr(256,5191
+void memory_read(279,5785
+void memory_write(312,6470
+void access_memory(329,6791
+void print_memory_page0(336,6885
+void print_memory_page2(359,7473
+void print_memory(394,8441
+void cp_cell2memory(407,8686
+void number2register(418,8893
+void read_dump(431,9123
+
+src/memory/memory-test.c,256
+#define _GNU_SOURCE7,40
+char * databus_register;14,143
+char * addressbus_register;15,168
+char * read_write;16,196
+char *testmemory[testmemory19,233
+void mem_copy_content(33,502
+void mem_dumpin(41,635
+void mem_copy_register(54,857
+int main 62,983
+
+src/alu/alu.c,721
+int const max_mue_memory 26,721
+char mue_memory[mue_memory28,754
+char* m 29,838
+unsigned int c 31,861
+unsigned int s 32,909
+unsigned int c_in 33,960
+int zero_test(41,1121
+void zsflagging(50,1262
+void half_adder(68,1589
+void full_adder(94,2154
+void one_complement(106,2368
+void two_complement(158,3803
+void op_add(181,4215
+void op_adc(249,5536
+void op_sub(262,5938
+void op_alu_sbc(291,6469
+void op_and(308,6951
+void op_or(338,7637
+void op_xor(367,8320
+void op_not_a(395,8866
+void op_not_b(401,9010
+void op_neg_a(410,9165
+void op_neg_b(418,9319
+void op_alu_asl(426,9457
+void op_alu_lsr(452,9884
+void op_alu_rol(475,10329
+  void op_alu_ror(501,10953
+void alu_reset(528,11391
+void alu(544,11703
+
+src/alu/alu-main.c,236
+#define _GNU_SOURCE13,432
+char rega[rega24,595
+char regb[regb25,632
+char accumulator[accumulator26,669
+char flags[flags27,713
+void alu_main_reset(33,813
+void alu_parse_line(48,1173
+void print_alu(102,2735
+int main(120,3216
+
+src/alu/alu.student.c,722
+int const max_mue_memory 21,303
+char mue_memory[mue_memory28,459
+char* m 29,543
+unsigned int c 30,565
+unsigned int s 31,608
+void clearCarryflag(33,649
+void setCarryflag(36,692
+void clearSignflag(39,733
+void setSignflag(42,775
+void clearZeroflag(45,815
+void setZeroflag(48,857
+void clearOverflowflag(51,897
+void setOverflowflag(54,943
+int zero_test(62,1096
+void halfadder(70,1249
+void adder(80,1508
+void one_complement(87,1630
+void two_complement(138,3081
+void op_add(149,3364
+void op_sub(160,3634
+void op_and(171,3910
+void op_or(182,4183
+void op_xor(193,4457
+void op_not_a(202,4558
+void op_not_b(208,4644
+void op_neg_a(217,4736
+void op_neg_b(225,4827
+void op_reset(233,4975
+void alu(251,5327
+
+test.c,16
+ int main(3,38
+
+src/include/printers.h,0
+
+src/include/cia.h,0
+
+src/include/src-ripper.h,0
+
+src/include/cpu-util.h,0
+
+src/include/flags.h,0
+
+src/include/mu-code.h,0
+
+src/include/adr-modes.h,0
+
+src/keyboard/kbd.c,0
