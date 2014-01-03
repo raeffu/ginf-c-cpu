@@ -673,6 +673,27 @@ void cpu_6502_lda_izy(){
  cycles: 4
 */
 void cpu_6502_lda_abs(){
+  cp_register(pcl, abrl);
+  cp_register(pch, abrh);
+  set_rw2read();
+  access_memory();
+
+  /* push dbr onto stack */
+  push1(dbr);
+  inc_pc();
+
+  cp_register(pcl, abrl);
+  cp_register(pch, abrh);
+  access_memory();
+
+  cp_register(dbr, abrh);
+  /* get abrl from stack */
+  pop1(abrl);
+  access_memory();
+
+  cp_register(dbr, acc);
+
+  inc_pc();
 }
 
 
