@@ -678,8 +678,10 @@ void cpu_6502_lda_abs(){
   set_rw2read();
   access_memory();
 
-  /* push dbr onto stack */
-  push1(dbr);
+  /* store low byte of adr */
+  char dummy[8];
+
+  cp_register(dbr, dummy);
   inc_pc();
 
   cp_register(pcl, abrl);
@@ -687,8 +689,7 @@ void cpu_6502_lda_abs(){
   access_memory();
 
   cp_register(dbr, abrh);
-  /* get abrl from stack */
-  pop1(abrl);
+  cp_register(dummy, abrl);
   access_memory();
 
   cp_register(dbr, acc);
@@ -708,6 +709,32 @@ void cpu_6502_lda_abs(){
  cycles: 4
 */
 void cpu_6502_lda_abx (){
+  cp_register(pcl, abrl);
+  cp_register(pch, abrh);
+  set_rw2read();
+  access_memory();
+
+  /* store low byte of adr */
+  char dummy[8];
+
+  cp_register(dbr, dummy);
+  inc_pc();
+
+  cp_register(pcl, abrl);
+  cp_register(pch, abrh);
+  access_memory();
+
+  alu(ALU_OP_ADD,dummy,idx,acc,flags);
+  cp_register(acc, abrl);
+
+  alu(ALU_OP_ADD_WITH_CARRY,dbr,"00000000",acc,flags);
+  cp_register(acc, abrh);
+
+  access_memory();
+
+  cp_register(dbr, acc);
+
+  inc_pc();
 }
 
 
@@ -722,7 +749,32 @@ void cpu_6502_lda_abx (){
  cycles: 4
 */
 void cpu_6502_lda_aby(){
+  cp_register(pcl, abrl);
+  cp_register(pch, abrh);
+  set_rw2read();
+  access_memory();
 
+  /* store low byte of adr */
+  char dummy[8];
+
+  cp_register(dbr, dummy);
+  inc_pc();
+
+  cp_register(pcl, abrl);
+  cp_register(pch, abrh);
+  access_memory();
+
+  alu(ALU_OP_ADD,dummy,idy,acc,flags);
+  cp_register(acc, abrl);
+
+  alu(ALU_OP_ADD_WITH_CARRY,dbr,"00000000",acc,flags);
+  cp_register(acc, abrh);
+
+  access_memory();
+
+  cp_register(dbr, acc);
+
+  inc_pc();
 }
 
 
