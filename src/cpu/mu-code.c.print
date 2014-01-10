@@ -1,0 +1,355 @@
+/*
+  6502-mu-code.c
+  bho1 10.12.2013
+  student version
+
+  GPL
+
+  >>> Raphael Laubscher, I1p <<<
+
+*/
+#include <stddef.h> // somehow we need NULL
+
+#include "alu.h"
+#include "alu-opcodes.h"
+#include "register.h"
+#include "memory.h"
+#include "flags.h"
+#include "cpu-util.h"
+#include "cpu.h"
+#include "mu-code.h"
+#include "adr-modes.h"
+
+
+/*
+ 6502 mu-function implementation ( file:///home/olivier/6502.html#LDA )
+ name: LDA
+ code: 0xA9
+ address-mode: imm
+ function: A:={adr}
+ mnemonic: LDA #
+ bytes: 2
+ cycles: 2
+*/
+void cpu_6502_lda_imm(){
+  cp_register(pcl, abrl);
+  cp_register(pch, abrh);
+
+  set_rw2read();
+  access_memory();
+
+  cp_register(dbr, acc);
+
+  // flags setzen - nicht so wichtig
+  zsflagging(flags, acc);
+
+  inc_pc();
+}
+
+
+/*
+ 6502 mu-function implementation ( file:///home/olivier/6502.html#LDA )
+ name: LDA
+ code: 0xA5
+ address-mode: zp
+ function: A:={adr}
+ mnemonic: LDA zpg
+ bytes: 2
+ cycles: 3
+*/
+void cpu_6502_lda_zp(){
+  cp_register(pcl, abrl);
+  cp_register(pch, abrh);
+  set_rw2read();
+  access_memory();
+
+  cp_register(dbr, abrl);
+  cp_register("00000000", abrh);
+  set_rw2read();
+  access_memory();
+
+  cp_register(dbr, acc);
+
+  // flags setzen - nicht so wichtig
+  zsflagging(flags, acc);
+
+  inc_pc();
+}
+
+/*
+ 6502 mu-function implementation ( file:///home/olivier/6502.html#LDA )
+ name: LDA
+ code: 0xB5
+ address-mode: zpx
+ function: A:={adr}
+ mnemonic: LDA zpg,X
+ bytes: 2
+ cycles: 4
+*/
+void cpu_6502_lda_zpx (){
+  cp_register(pcl, abrl);
+  cp_register(pch, abrh);
+  set_rw2read();
+  access_memory();
+
+  /* add addr + x-register */
+  alu(ALU_OP_ADD,dbr,idx,acc,flags);
+
+  cp_register(acc, abrl);
+  cp_register("00000000", abrh);
+  set_rw2read();
+  access_memory();
+
+  cp_register(dbr, acc);
+
+  // flags setzen - nicht so wichtig
+  zsflagging(flags, acc);
+
+  inc_pc();
+}
+
+
+/*
+ 6502 mu-function implementation ( file:///home/olivier/6502.html#LDA )
+ name: LDA
+ code: 0xA1
+ address-mode: izx
+ function: A:={adr}
+ mnemonic: LDA X,ind
+ bytes: 2
+ cycles: 6
+*/
+void cpu_6502_lda_izx(){
+  cp_register(pcl, abrl);
+  cp_register(pch, abrh);
+  set_rw2read();
+  access_memory();
+
+  /* add dbr + x-register */
+  alu(ALU_OP_ADD,dbr,idx,acc,flags);
+
+  cp_register(acc, abrl);
+  inc_register(acc);
+  cp_register(acc, abrh);
+
+  /* set_rw2read(); */
+  access_memory();
+
+  cp_register(dbr, acc);
+
+  // flags setzen - nicht so wichtig
+  zsflagging(flags, acc);
+
+  inc_pc();
+}
+
+
+/*
+ 6502 mu-function implementation ( file:///home/olivier/6502.html#LDA )
+ name: LDA
+ code: 0xB1
+ address-mode: izy
+ function: A:={adr}
+ mnemonic: LDA ind,Y
+ bytes: 2
+ cycles: 5
+*/
+void cpu_6502_lda_izy(){
+  cp_register(pcl, abrl);
+  cp_register(pch, abrh);
+  set_rw2read();
+  access_memory();
+
+  cp_register(dbr, abrl);
+  cp_register("00000000", abrh);
+  access_memory();
+
+  /* add dbr + x-register */
+  alu(ALU_OP_ADD,dbr,idy,acc,flags);
+
+  cp_register(pcl, abrl);
+  cp_register(pch, abrh);
+  access_memory();
+
+  inc_register(dbr);
+
+  cp_register(dbr, abrl);
+  cp_register("00000000", abrh);
+  access_memory();
+
+  cp_register(acc, abrl);
+  alu(ALU_OP_ADD_WITH_CARRY,dbr,"00000000",acc,flags);
+  cp_register(acc, abrh);
+  access_memory();
+
+  cp_register(dbr, acc);
+
+  inc_pc();
+}
+
+
+/*
+ 6502 mu-function implementation ( file:///home/olivier/6502.html#LDA )
+ name: LDA
+ code: 0xAD
+ address-mode: abs
+ function: A:={adr}
+ mnemonic: LDA abs
+ bytes: 3
+ cycles: 4
+*/
+void cpu_6502_lda_abs(){
+  cp_register(pcl, abrl);
+  cp_register(pch, abrh);
+  set_rw2read();
+  access_memory();
+
+  /* store low byte of adr */
+  char dummy[8];
+
+  cp_register(dbr, dummy);
+  inc_pc();
+
+  cp_register(pcl, abrl);
+  cp_register(pch, abrh);
+  access_memory();
+
+  cp_register(dbr, abrh);
+  cp_register(dummy, abrl);
+  access_memory();
+
+  cp_register(dbr, acc);
+
+  inc_pc();
+}
+
+
+/*
+ 6502 mu-function implementation ( file:///home/olivier/6502.html#LDA )
+ name: LDA
+ code: 0xBD
+ address-mode: abx
+ function: A:={adr}
+ mnemonic: LDA abs,X
+ bytes: 3
+ cycles: 4
+*/
+void cpu_6502_lda_abx (){
+  cp_register(pcl, abrl);
+  cp_register(pch, abrh);
+  set_rw2read();
+  access_memory();
+
+  /* store low byte of adr */
+  char dummy[8];
+
+  cp_register(dbr, dummy);
+  inc_pc();
+
+  cp_register(pcl, abrl);
+  cp_register(pch, abrh);
+  access_memory();
+
+  alu(ALU_OP_ADD,dummy,idx,acc,flags);
+  cp_register(acc, abrl);
+
+  alu(ALU_OP_ADD_WITH_CARRY,dbr,"00000000",acc,flags);
+  cp_register(acc, abrh);
+
+  access_memory();
+
+  cp_register(dbr, acc);
+
+  inc_pc();
+}
+
+
+/*
+ 6502 mu-function implementation ( file:///home/olivier/6502.html#LDA )
+ name: LDA
+ code: 0xB9
+ address-mode: aby
+ function: A:={adr}
+ mnemonic: LDA abs,Y
+ bytes: 3
+ cycles: 4
+*/
+void cpu_6502_lda_aby(){
+  cp_register(pcl, abrl);
+  cp_register(pch, abrh);
+  set_rw2read();
+  access_memory();
+
+  /* store low byte of adr */
+  char dummy[8];
+
+  cp_register(dbr, dummy);
+  inc_pc();
+
+  cp_register(pcl, abrl);
+  cp_register(pch, abrh);
+  access_memory();
+
+  alu(ALU_OP_ADD,dummy,idy,acc,flags);
+  cp_register(acc, abrl);
+
+  alu(ALU_OP_ADD_WITH_CARRY,dbr,"00000000",acc,flags);
+  cp_register(acc, abrh);
+
+  access_memory();
+
+  cp_register(dbr, acc);
+
+  inc_pc();
+}
+
+/*
+ 6502 mu-function implementation ( file:///home/olivier/6502.html#LDX )
+ name: LDX
+ code: 0xA2
+ address-mode: imm
+ function: X:={adr}
+ mnemonic: LDX #
+ bytes: 2
+ cycles: 2
+*/
+void cpu_6502_ldx_imm(){
+  cp_register(pcl, abrl);
+  cp_register(pch, abrh);
+
+  set_rw2read();
+  access_memory();
+
+  cp_register(dbr, idx);
+
+  // flags setzen - nicht so wichtig
+  zsflagging(flags, acc);
+
+  inc_pc();
+}
+
+
+/*
+ 6502 mu-function implementation ( file:///home/olivier/6502.html#LDY )
+ name: LDY
+ code: 0xA0
+ address-mode: imm
+ function: Y:={adr}
+ mnemonic: LDY #
+ bytes: 2
+ cycles: 2
+*/
+void cpu_6502_ldy_imm(){
+  cp_register(pcl, abrl);
+  cp_register(pch, abrh);
+
+  set_rw2read();
+  access_memory();
+
+  cp_register(dbr, idy);
+
+  // flags setzen - nicht so wichtig
+  zsflagging(flags, acc);
+
+  inc_pc();
+}
